@@ -32,12 +32,12 @@ class Ejsendf():
 
     @staticmethod
     def oob_stanza(geturl):
-        message = lxml.etree.Element('message', type='chat')
-        body = lxml.etree.SubElement(message, 'body')
-        body.text = geturl
-        x = lxml.etree.SubElement(message, 'x', xmlns='jabber:x:oob')
-        url = lxml.etree.SubElement(x, 'url')
-        url.text = geturl
+        message=lxml.etree.Element('message', type='chat')
+        body=lxml.etree.SubElement(message, 'body')
+        body.text=geturl
+        x=lxml.etree.SubElement(message, 'x', xmlns='jabber:x:oob')
+        url=lxml.etree.SubElement(x, 'url')
+        url.text=geturl
         return lxml.etree.tostring(message).decode('utf-8')
 
     def calc_file_auth_token(self, filename, upload_filename):
@@ -58,7 +58,7 @@ class Ejsendf():
             return upload_url
 
     def send(self, sender, recipient, geturl):
-        data = {
+        data={
             'from': sender,
             'to': recipient,
             'stanza': self.oob_stanza(geturl)
