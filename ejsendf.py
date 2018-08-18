@@ -53,7 +53,7 @@ if __name__ == '__main__':
     parser.add_argument('--puturl', help='ejabberd\'s put url', required=True)
     parser.add_argument('filename', help='File to upload')
     if os.path.isfile(CONFIG_FILENAME):
-        args = parser.parse_args(sys.argv[1:] + ['@' + CONFIG_FILENAME])
+        args = parser.parse_args(['@'+CONFIG_FILENAME]+sys.argv[1:])
     else:
         args = parser.parse_args()
 
